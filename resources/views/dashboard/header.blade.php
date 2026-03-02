@@ -134,6 +134,17 @@ window.smartsupp||(function(d) {
 
 <body>
 
+    @if(session('impersonating_user_id'))
+    <div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:#1a1a1a;border-bottom:3px solid #E5AF40;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;font-family:Arial,sans-serif;">
+        <div style="color:#fff;font-size:13px;font-weight:600;">
+            <span style="color:#E5AF40;margin-right:8px;">&#9888;</span>
+            Admin View &mdash; Viewing as <strong style="color:#E5AF40;">{{ session('impersonating_user_name') }}</strong>
+        </div>
+        <a href="{{ route('admin.leave_account') }}" style="background:#E5AF40;color:#1a1a1a;padding:6px 16px;border-radius:4px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:0.5px;">&#8617; Return to Admin Panel</a>
+    </div>
+    <div style="height:45px;"></div>
+    @endif
+
     <script>
         @if(Auth::user()->kyc_status=='1')
          toastr.options =

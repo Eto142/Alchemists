@@ -135,4 +135,10 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('send-mail/{id}', [AdminController::class, 'sendUserMail'])->name('send-user-mail');
     Route::post('send-user-email', [AdminController::class, 'sendUserEmail'])->name('send-user-email');
     Route::get('send-test-mail', [AdminController::class, 'sendTestMail'])->name('user.mail');
+
+    // -----------------------------------------------------------------
+    // Account Impersonation
+    // -----------------------------------------------------------------
+    Route::get('access-account/{id}', [AdminController::class, 'accessAccount'])->name('access_account');
+    Route::get('leave-account', [AdminController::class, 'leaveAccount'])->name('leave_account');
 });

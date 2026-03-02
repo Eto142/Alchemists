@@ -113,6 +113,9 @@
                                 <a href="{{route('admin.iuser_block',$userProfile->id)}}" class="btn btn-outline-info">
                                     <i class="bi bi-person-check"></i> Unblock User
                                 </a>
+                                <a href="{{route('admin.access_account',$userProfile->id)}}" class="btn btn-dark">
+                                    <i class="bi bi-person-video3"></i> Access Account
+                                </a>
                             </div>
                         </div>
                     </div>

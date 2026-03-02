@@ -986,6 +986,37 @@ public function updateTransactionDate(Request $request, $id)
         return redirect('admin/update-wallett')->with('status', 'Bank Details Updated Successfully');
     }
 
+    // -----------------------------------------------------------------
+    // Account Impersonation
+    // -----------------------------------------------------------------
+
+    public function accessAccount($id)
+    {
+        $user = User::findOrFail($id);
+
+        // Log in as the user on the default web guard
+        Auth::guard('web')->login($user);
+
+        // Store a flag so the dashboard can show the "Return to Admin" banner
+        session([
+            'impersonating_user_id'   => $user->id,
+            'impersonating_user_name' => $user->first_name . ' ' . $user->last_name,
+        ]);
+
+        return redirect()->route('dashboard');
+    }
+
+    public function leaveAccount()
+    {
+        // Log out of the user account
+        Auth::guard('web')->logout();
+
+        // Clear impersonation flag
+        session()->forget(['impersonating_user_id', 'impersonating_user_name']);
+
+        return redirect()->route('admin.view.users');
+    }
+
 
 
 
