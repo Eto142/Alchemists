@@ -7,7 +7,7 @@
     <div class="text-center mb-4">
         <img src="{{ asset('logo.png') }}" alt="Bank Logo" style="height: 80px;">
         <h2>Bank Statement</h2>
-        <p class="text-muted">Issued by FastPay Saver Bank</p>
+        <p class="text-muted">Issued by Alchemists Aureum Bank Bank</p>
         <hr>
     </div>
 

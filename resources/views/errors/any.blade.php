@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error {{ $exception->getStatusCode() ?? 'Error' }} | {{ config('app.name', 'FastPay Saver') }}</title>
+    <title>Error {{ $exception->getStatusCode() ?? 'Error' }} | {{ config('app.name', 'Alchemists Aureum Bank') }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -197,7 +197,7 @@
 <body>
     <div class="error-card animate-in {{ $exception->getStatusCode() == 403 ? 'warning' : ($exception->getStatusCode() == 404 ? '' : 'error') }}">
         <!-- Company Logo -->
-        <img src="logo.png" alt="FastPay Saver" class="error-logo">
+        <img src="logo.png" alt="Alchemists Aureum Bank" class="error-logo">
         
         <!-- Error Icon (changes based on error type) -->
         <div class="error-icon">
@@ -274,7 +274,7 @@
         </div>
         
         <div class="error-footer">
-            &copy; {{ date('Y') }} FastPay Saver. All rights reserved.
+            &copy; {{ date('Y') }} Alchemists Aureum Bank. All rights reserved.
         </div>
     </div>
 </body>

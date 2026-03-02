@@ -1,142 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to FastPay Saver </title>
-    <style>
-        /* Reset styles */
-        body, h1, h2, p {
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Global styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            line-height: 1.6;
-        }
-
-        /* Container styles */
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Header styles */
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .header img {
-            max-width: 200px;
-            height: auto;
-        }
-
-        /* Content styles */
-        .content {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .content h1, .content h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .content p {
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        .activation-code {
-            margin: 20px 0;
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        /* Security tips styles */
-        .security-tips {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #ccc;
-            color: #888;
-        }
-
-        .security-tips p {
-            margin-bottom: 10px;
-        }
-
-        .security-tips ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        .security-tips ul li {
-            margin-bottom: 5px;
-        }
-
-        /* Footer styles */
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #888;
-            font-size: 12px;
-        }
-
-        .footer a {
-            color: #888;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Confirm Your Registration - Alchemists Aureum Bank</title>
 </head>
-
-<body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-    
-        </div>
-        
-        <!-- Content -->
-        <div class="content">
-            <h1>Confirm Your Registration</h1>
-            <h2>Welcome to FastPay Saver </h2>
-            <p>Your registration is successful, and you are just a step away from verifying your account.</p>
-            <p>Please find your activation code below:</p>
-            <p class="activation-code">{{$validToken}}</p>
-        </div>
-
-        <!-- Security Tips -->
-        <div class="security-tips">
-            <p><strong>Security Tips:</strong></p>
-            <ul>
-                <li>Never give your login access to anyone.</li>
-                <li>This message is automated; do not reply.</li>
-                <li>Enable two-factor authentication for enhanced security.</li>
-                <li>Contact us immediately if you notice any suspicious activity.</li>
+<body style="margin:0;padding:0;background-color:#f0f2f0;font-family:Arial,Helvetica,sans-serif">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">Your Alchemists Aureum Bank activation code is ready. Complete your registration now.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f2f0;padding:32px 0">
+  <tr><td align="center">
+    <table width="590" cellpadding="0" cellspacing="0" border="0" style="max-width:590px;width:100%">
+      <tr><td align="center" style="background-color:#003D2B;border-radius:12px 12px 0 0;padding:28px 40px 24px">
+        <a href="{{ config('app.url') }}" style="text-decoration:none">
+          <img src="{{ asset('logo1.png') }}" alt="Alchemists Aureum Bank" width="160" style="display:block;width:160px;max-width:100%;height:auto;margin:0 auto">
+        </a>
+      </td></tr>
+      <tr><td style="height:4px;background:#C8952B;font-size:0;line-height:0">&nbsp;</td></tr>
+      <tr><td style="background-color:#ffffff;padding:36px 40px">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr><td align="center" style="padding-bottom:16px">
+            <div style="display:inline-block;width:56px;height:56px;background-color:#003D2B;border-radius:50%;text-align:center;font-size:28px;line-height:56px">&#9993;</div>
+          </td></tr>
+          <tr><td align="center" style="padding-bottom:6px">
+            <h1 style="margin:0;font-size:22px;font-weight:700;color:#111827;font-family:Arial,sans-serif">Confirm Your Registration</h1>
+          </td></tr>
+          <tr><td align="center" style="padding-bottom:28px">
+            <p style="margin:0;font-size:14px;color:#6b7280;font-family:Arial,sans-serif">Welcome to Alchemists Aureum Bank</p>
+          </td></tr>
+        </table>
+        <p style="margin:0 0 14px;font-size:15px;color:#374151;font-family:Arial,sans-serif;line-height:1.6">Thank you for registering with <strong>Alchemists Aureum Bank</strong>. Your account has been created successfully. Use the activation code below to verify your account.</p>
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0">
+          <tr><td align="center" style="background-color:#003D2B;border-radius:10px;padding:18px 20px">
+            <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);font-family:Arial,sans-serif">Activation Code</p>
+            <p style="margin:0;font-size:36px;font-weight:800;letter-spacing:10px;color:#E5AF40;font-family:'Courier New',monospace">{{ $validToken }}</p>
+          </td></tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f9fafb;border-radius:8px;margin-bottom:24px">
+          <tr><td style="padding:16px 18px">
+            <p style="margin:0 0 8px;font-size:13px;font-weight:700;color:#374151;font-family:Arial,sans-serif">Security Tips</p>
+            <ul style="margin:0;padding-left:18px;color:#6b7280;font-size:13px;font-family:Arial,sans-serif;line-height:1.8">
+              <li>Never share your login details or this code with anyone.</li>
+              <li>This is an automated message - please do not reply.</li>
+              <li>If you did not create this account, please disregard this email.</li>
+              <li>Contact support immediately if you notice suspicious activity.</li>
             </ul>
-            <p><em>Kind Regards,<br>FastPay Saver </em></p>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2026 FastPay Saver . All Rights Reserved.</p>
-            <p><a href="#">Unsubscribe</a></p>
-        </div>
-    </div>
+          </td></tr>
+        </table>
+        <p style="margin:0;font-size:14px;color:#6b7280;font-family:Arial,sans-serif;line-height:1.6">Kind regards,<br><strong style="color:#003D2B">Alchemists Aureum Bank</strong></p>
+      </td></tr>
+      <tr><td style="height:4px;background:#C8952B;font-size:0;line-height:0">&nbsp;</td></tr>
+      <tr><td align="center" style="background-color:#001F16;border-radius:0 0 12px 12px;padding:20px 40px">
+        <p style="margin:0 0 4px;font-size:12px;color:rgba(255,255,255,0.45);font-family:Arial,sans-serif">&copy; {{ date('Y') }} Alchemists Aureum Bank. All rights reserved.</p>
+        <p style="margin:0;font-size:11px;color:rgba(200,149,43,0.5);font-family:Arial,sans-serif">Secure &bull; Private &bull; Trusted</p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
 </body>
-
 </html>

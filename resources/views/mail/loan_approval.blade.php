@@ -1,184 +1,45 @@
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
-<html xmlns:v='urn:schemas-microsoft-com:vml'>
-
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <!--[if !mso]--><!-- -->
-    <link href='https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet'>
-    <!--<![endif]-->
-    <title>Alchemists Aureum Bank</title>
-    <style type='text/css'>
-        body {
-            width: 100%;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-            mso-margin-top-alt: 0px;
-            mso-margin-bottom-alt: 0px;
-            mso-padding-alt: 0px 0px 0px 0px;
-        }
-
-        p,
-        h1,
-        h2,
-        h3,
-        h4 {
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-
-        span.preheader {
-            display: none;
-            font-size: 1px;
-        }
-
-        html {
-            width: 100%;
-        }
-
-        table {
-            font-size: 14px;
-            border: 0;
-        }
-
-        /* ----------- responsivity ----------- */
-
-        @media only screen and (max-width: 640px) {
-            /* Styles for screens up to 640px wide */
-            .main-header {
-                font-size: 20px !important;
-            }
-            .main-section-header {
-                font-size: 28px !important;
-            }
-            .show {
-                display: block !important;
-            }
-            .hide {
-                display: none !important;
-            }
-            .align-center {
-                text-align: center !important;
-            }
-            .no-bg {
-                background: none !important;
-            }
-            /* Adjust styles for smaller screens */
-            .main-image img {
-                width: 100% !important;
-                height: auto !important;
-            }
-            .container590 {
-                width: 100% !important;
-            }
-            .main-button {
-                width: 80% !important;
-            }
-            .section-img img {
-                width: 100% !important;
-                height: auto !important;
-            }
-            .team-img img {
-                width: 100% !important;
-                height: auto !important;
-            }
-        }
-
-        @media only screen and (max-width: 479px) {
-            /* Styles for screens up to 479px wide */
-            .main-header {
-                font-size: 18px !important;
-            }
-            .main-section-header {
-                font-size: 26px !important;
-            }
-            .divider img {
-                width: 100% !important;
-            }
-            .container590 {
-                width: 100% !important;
-            }
-            .container580 {
-                width: 100% !important;
-            }
-            .section-img img {
-                width: 100% !important;
-                height: auto !important;
-            }
-        }
-    </style>
-    <!--[if gte mso 9]><style type='text/css'>
-        body {
-            font-family: arial, sans-serif!important;
-        }
-    </style><![endif]-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Loan Approved - Alchemists Aureum Bank</title>
 </head>
-
-<body class='respond' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>
-    <table border='0' width='100%' cellpadding='0' cellspacing='0' bgcolor='#ffffff'>
-        <!-- Header Section -->
-        <tr>
-            <td align='center'>
-                <table border='0' width='590' cellpadding='0' cellspacing='0' class='container590'>
-                    <tr>
-                        <td height='25' style='font-size: 25px; line-height: 25px;'>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align='center'>
-                            <a href=''><img width='300' border='0' style='display: block; width: 300px; margin: 0 auto;' src='{{ asset('logo.png') }}' alt=''></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height='25' style='font-size: 25px; line-height: 25px;'>&nbsp;</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <!-- Content Section -->
-        <tr>
-            <td align='center' style='padding: 0 15px;'>
-                <table border='0' width='590' cellpadding='0' cellspacing='0' class='container590'>
-                    <tr>
-                        <td align='center' style='color: #888888; font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;'>
-                            <h2 style='margin-bottom: 15px;'>Loan Approval!</h2>
-                            <p style='line-height: 24px; margin-bottom: 15px;'>{{$data}}</p>
-                            <p style='line-height: 24px;'>Kind Regards,<br/>Alchemists Aureum Bank</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <!-- Footer Section -->
-        <tr>
-            <td align='center'>
-                <table border='0' width='590' cellpadding='0' cellspacing='0' class='container590' bgcolor='#f4f4f4'>
-                    <tr>
-                        <td height='25' style='font-size: 25px; line-height: 25px;'>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align='center' style='color: #aaaaaa; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;'>
-                            <div style='line-height: 24px;'>
-                                <span style='color: #333333;'>Copyright 2026 - All Rights Reserved</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align='center' style='font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;'>
-                            <a href='' style='color: #5caad2; text-decoration: none; font-weight: bold;'>UNSUBSCRIBE</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height='25' style='font-size: 25px; line-height: 25px;'>&nbsp;</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</body>
-
-</html>
+<body style="margin:0;padding:0;background-color:#f0f2f0;font-family:Arial,Helvetica,sans-serif">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">Congratulations! Your loan application has been approved.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f2f0;padding:32px 0">
+<tr><td align="center">
+<table width="590" cellpadding="0" cellspacing="0" border="0" style="max-width:590px;width:100%">
+<tr><td align="center" style="background-color:#003D2B;border-radius:12px 12px 0 0;padding:28px 40px 24px">
+<a href="{{ config('app.url') }}" style="text-decoration:none">
+<img src="{{ asset('logo1.png') }}" alt="Alchemists Aureum Bank" width="160" style="display:block;width:160px;max-width:100%;height:auto;margin:0 auto">
+</a></td></tr>
+<tr><td style="height:4px;background:#C8952B;font-size:0;line-height:0">&nbsp;</td></tr>
+<tr><td style="background-color:#ffffff;padding:36px 40px">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td align="center" style="padding-bottom:16px">
+<div style="display:inline-block;width:56px;height:56px;background-color:#003D2B;border-radius:50%;text-align:center;font-size:26px;line-height:56px">&#127881;</div>
+</td></tr>
+<tr><td align="center" style="padding-bottom:6px">
+<h1 style="margin:0;font-size:22px;font-weight:700;color:#111827;font-family:Arial,sans-serif">Loan Approved</h1>
+</td></tr>
+<tr><td align="center" style="padding-bottom:24px">
+<p style="margin:0;font-size:14px;color:#6b7280;font-family:Arial,sans-serif">Your application was successful</p>
+</td></tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;margin-bottom:20px">
+<tr><td style="padding:20px 22px">
+<p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#166534;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:0.5px">&#10003; Approved</p>
+<p style="margin:0;font-size:15px;color:#374151;font-family:Arial,sans-serif;line-height:1.7">{{ $data }}</p>
+</td></tr></table>
+<p style="margin:0 0 14px;font-size:14px;color:#374151;font-family:Arial,sans-serif;line-height:1.6">Congratulations! Your loan application has been <strong>approved</strong>. The funds will be disbursed to your account shortly. Please log in to your dashboard for full details.</p>
+<p style="margin:20px 0 0;font-size:14px;color:#6b7280;font-family:Arial,sans-serif;line-height:1.6">Kind regards,<br><strong style="color:#003D2B">Alchemists Aureum Bank</strong></p>
+</td></tr>
+<tr><td style="height:4px;background:#C8952B;font-size:0;line-height:0">&nbsp;</td></tr>
+<tr><td align="center" style="background-color:#001F16;border-radius:0 0 12px 12px;padding:20px 40px">
+<p style="margin:0 0 4px;font-size:12px;color:rgba(255,255,255,0.45);font-family:Arial,sans-serif">&copy; 2026 Alchemists Aureum Bank. All rights reserved.</p>
+<p style="margin:0;font-size:11px;color:rgba(200,149,43,0.5);font-family:Arial,sans-serif">Secure &bull; Private &bull; Trusted</p>
+</td></tr>
+</table></td></tr></table>
+</body></html>

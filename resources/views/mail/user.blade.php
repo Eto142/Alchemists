@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alchemists Aureum Bank</title>
-    <style>
-        /* Reset CSS and other styles remain the same */
-        
-     .logo {
-        width: 100px;
-        margin-bottom: 15px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Account Notification - Alchemists Aureum Bank</title>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <a href="#">
-                <img src="https://alchemistsaureumbnk.com/logo.png" alt="FastPay Saver Bank Logo" class="logo">
-            </a>
-        </div>
-        <div class="content">
-         <h2>{{ $data['subject'] }}</h2>
-            <p>{{ $data['message'] }}</p>
-            <!--<p>We wanted to inform you about an important update regarding your account. [Provide concise and relevant information here]</p>-->
-            <!--<p>If you have any questions or concerns, please don't hesitate to contact our support team at <a href="mailto:support@Alchemists Aureum Bank.cc">support@Alchemists Aureum Bank.cc</a>.</p>-->
-            <!--<p>Best Regards,<br>Alchemists Aureum Bank</p>-->
-        </div>
-        <div class="footer">
-            <p>&copy; 2026 Alchemists Aureum Bank. All Rights Reserved.</p>
-            <p><a href="#">UNSUBSCRIBE</a></p>
-        </div>
-    </div>
-</body>
-</html>
+<body style="margin:0;padding:0;background-color:#f0f2f0;font-family:Arial,Helvetica,sans-serif">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">An important update regarding your Alchemists Aureum Bank account.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f2f0;padding:32px 0">
+<tr><td align="center">
+<table width="590" cellpadding="0" cellspacing="0" border="0" style="max-width:590px;width:100%">
+<tr><td align="center" style="background-color:#003D2B;border-radius:12px 12px 0 0;padding:28px 40px 24px">
+<a href="{{ config('app.url') }}" style="text-decoration:none">
+<img src="{{ asset('logo1.png') }}" alt="Alchemists Aureum Bank" width="160" style="display:block;width:160px;max-width:100%;height:auto;margin:0 auto">
+</a></td></tr>
+<tr><td style="height:4px;background:#C8952B;font-size:0;line-height:0">&nbsp;</td></tr>
+<tr><td style="background-color:#ffffff;padding:36px 40px">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td align="center" style="padding-bottom:16px">
+<div style="display:inline-block;width:56px;height:56px;background-color:#C8952B;border-radius:50%;text-align:center;font-size:26px;line-height:56px">&#128276;</div>
+</td></tr>
+<tr><td align="center" style="padding-bottom:6px">
+<h1 style="margin:0;font-size:22px;font-weight:700;color:#111827;font-family:Arial,sans-serif">Account Notification</h1>
+</td></tr>
+<tr><td align="center" style="padding-bottom:24px">
+<p style="margin:0;font-size:14px;color:#6b7280;font-family:Arial,sans-serif">Alchemists Aureum Bank</p>
+</td></tr>
+</table>
+<div style="background-color:#f9fafb;border-left:4px solid #C8952B;border-radius:0 8px 8px 0;padding:18px 20px;margin-bottom:20px">
+<p style="margin:0 0 6px;font-size:16px;font-weight:700;color:#111827;font-family:Arial,sans-serif">{{ $data['subject'] }}</p>
+<p style="margin:0;font-size:15px;color:#374151;font-family:Arial,sans-serif;line-height:1.7">{{ $data['message'] }}</p>
+</div>
+<p style="margin:0;font-size:13px;color:#9ca3af;font-family:Arial,sans-serif">This is an official notification from Alchemists Aureum Bank. Please do not reply to this email.</p>
+<p style="margin:20px 0 0;font-size:14px;color:#6b7280;font-family:Arial,sans-serif;line-height:1.6">Kind regards,<br><strong style="color:#003D2B">Alchemists Aureum Bank</strong></p>
+</td></tr>
+<tr><td style="height:4px;background:#C8952B;font-size:0;line-height:0">&nbsp;</td></tr>
+<tr><td align="center" style="background-color:#001F16;border-radius:0 0 12px 12px;padding:20px 40px">
+<p style="margin:0 0 4px;font-size:12px;color:rgba(255,255,255,0.45);font-family:Arial,sans-serif">&copy; 2026 Alchemists Aureum Bank. All rights reserved.</p>
+<p style="margin:0;font-size:11px;color:rgba(200,149,43,0.5);font-family:Arial,sans-serif">Secure &bull; Private &bull; Trusted</p>
+</td></tr>
+</table></td></tr></table>
+</body></html>

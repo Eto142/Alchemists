@@ -48,7 +48,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://alchemistsaureumbnk.com/logo.png" alt="FastPay Saver Bank Logo" class="logo">
+        <img src="https://alchemistsaureumbnk.com/logo.png" alt="Alchemists Aureum Bank Bank Logo" class="logo">
         
         <h1>Check Deposit</h1>
         <p class="approval-message">Your check has been approved successfully</p>

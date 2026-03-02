@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Dashboard') — {{ config('app.name', 'FastPay Saver') }}</title>
+    <title>@yield('title', 'Dashboard') — {{ config('app.name', 'Alchemists Aureum Bank') }}</title>
 
     {{-- Bootstrap 5 --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
     <div class="sidebar-header">
         <a href="{{ route('dashboard') }}" class="sidebar-brand">
             <img src="{{ asset('logo02.png') }}" alt="Logo" class="sidebar-logo" onerror="this.style.display='none'">
-            {{-- <span class="sidebar-brand-text">FastPay Saver</span> --}}
+            {{-- <span class="sidebar-brand-text">Alchemists Aureum Bank</span> --}}
         </a>
         <button class="sidebar-close d-lg-none" id="sidebarClose">
             <i class="bi bi-x-lg"></i>
@@ -203,7 +203,7 @@
 
     {{-- Footer --}}
     <footer class="dashboard-footer">
-        <span>&copy; {{ date('Y') }} {{ config('app.name', 'FastPay Saver') }}. All rights reserved.</span>
+        <span>&copy; {{ date('Y') }} {{ config('app.name', 'Alchemists Aureum Bank') }}. All rights reserved.</span>
     </footer>
 
     {{-- Bottom Nav (mobile) --}}

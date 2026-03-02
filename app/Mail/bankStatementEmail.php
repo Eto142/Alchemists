@@ -29,7 +29,7 @@ class bankStatementEmail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Your Bank Statement from FastPay Saver Bank' // More relevant subject
+            subject: 'Your Bank Statement from Alchemists Aureum Bank Bank' // More relevant subject
         );
     }
 
