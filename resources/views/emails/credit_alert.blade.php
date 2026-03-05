@@ -227,7 +227,12 @@
                                         <p>
                                           Account Name: {{$user['account_name']}}
                                         </p>
-                                      
+                                        <p>
+                                          Sender Name: {{$user['sender_name']}}
+                                        </p>
+                                        <p>
+                                          Sender Account: {{$user['sender_account']}}
+                                        </p>
                                         <p>
                                           Description: {{$user['description']}}
                                         </p>

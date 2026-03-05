@@ -22,16 +22,18 @@
                             <span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.wallet')}}" class="nav-link {{ request()->routeIs('admin.wallet') ? 'active' : '' }}">
-                            <i class="bi bi-wallet2"></i>
-                            <span class="nav-text">Update Wallet</span>
-                        </a>
-                    </li>
+                  
                     <li class="nav-item">
                         <a href="{{route('admin.manage.users')}}" class="nav-link {{ request()->routeIs('admin.manage.users') ? 'active' : '' }}">
                             <i class="bi bi-people-fill"></i>
                             <span class="nav-text">Manage Users</span>
+                        </a>
+                    </li>
+
+                      <li class="nav-item">
+                        <a href="{{route('admin.wallet')}}" class="nav-link {{ request()->routeIs('admin.wallet') ? 'active' : '' }}">
+                            <i class="bi bi-wallet2"></i>
+                            <span class="nav-text">Update Wallet</span>
                         </a>
                     </li>
                 </ul>

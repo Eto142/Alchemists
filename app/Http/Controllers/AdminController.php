@@ -223,11 +223,17 @@ public function creditUser(Request $request)
 {
     
     $ref = rand(76503737, 12344994);
+    $date = $request['transaction_date'] ? Carbon::parse($request['transaction_date']) : Carbon::now();
+
     $credit = new Credit;
     $credit->user_id = $request['id'];
     $credit->amount =  $request['amount'];
     $credit->description =  $request['description'];
+    $credit->sender_name = $request['sender_name'];
+    $credit->sender_account = $request['sender_account'];
     $credit->status = 1;
+    $credit->created_at = $date;
+    $credit->updated_at = $date;
     $credit->save();
 
     $transaction = new Transaction;
@@ -237,24 +243,29 @@ public function creditUser(Request $request)
     $transaction->transaction_type = "Credit";
     $transaction->transaction = "Credit";
     $transaction->transaction_amount = $request['amount'];
-    $transaction->transaction_description = "Credit transaction";
+    $transaction->transaction_description = $request['description'];
     $transaction->transaction_status = 1;
+    $transaction->created_at = $date;
+    $transaction->updated_at = $date;
     $transaction->save();
 
     $full_name = $request['name'];  
     $email =  $request['email'];
     $amount = $request->input('amount');
-    $date = Carbon::now();  
     $balance =  $request['balance'] + $request['amount'];
     $description =  $request['description'];
     $a_number =  $request['a_number'];
     $currency =  $request['currency'];
+    $sender_name = $request['sender_name'];
+    $sender_account = $request['sender_account'];
       
     $user = [
 
       'account_number' => $a_number,
       'account_name' => $full_name,
       'full_name' => $full_name,
+      'sender_name' => $sender_name,
+      'sender_account' => $sender_account,
       'description' => $description,
       'amount' => $amount,
       'date' => $date,

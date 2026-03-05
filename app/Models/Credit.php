@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Credit extends Model
 {
     use HasFactory;
+
+    protected $table = 'credits';
+
+    protected $fillable = [
+        'user_id',
+        'amount',
+        'description',
+        'sender_name',
+        'sender_account',
+        'status',
+    ];
 }

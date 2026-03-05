@@ -209,10 +209,25 @@
                             <label class="form-label">Amount ({{$userProfile->currency}})</label>
                             <input type="number" step="0.01" name="amount" class="form-control" placeholder="Enter Amount" required>
                         </div>
-                        
+
+                        <div class="mb-3">
+                            <label class="form-label">Sender Name</label>
+                            <input type="text" name="sender_name" class="form-control" placeholder="Enter sender's full name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Sender Account Number</label>
+                            <input type="text" name="sender_account" class="form-control" placeholder="Enter sender's account number" required>
+                        </div>
+
                         <div class="mb-3">
                             <label class="form-label">Description</label>
                             <textarea name="description" class="form-control" rows="3" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Transaction Date</label>
+                            <input type="datetime-local" name="transaction_date" class="form-control" value="{{ now()->format('Y-m-d\TH:i') }}" required>
                         </div>
                     </div>
                     <div class="modal-footer">
