@@ -46,25 +46,119 @@
                 <span class="balance-hidden d-none">{{ Auth::user()->currency }}*****</span>
             </div>
             <div class="hero-balance-sub mt-2">
-                <span class="me-3"><i class="bi bi-person-fill me-1"></i>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
                 <span class="me-3"><i class="bi bi-hash me-1"></i>{{ Auth::user()->a_number }}</span>
-                <span><i class="bi bi-building me-1"></i>{{ Auth::user()->account_type }}</span>
+                <span>| {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
+            </div>
+            <div class="hero-balance-date mt-1">
+                <i class="bi bi-clock me-1"></i>Last updated just now
+                @if(Auth::user()->kyc_status == '1')
+                    &nbsp;<span class="hero-badge verified"><i class="bi bi-patch-check-fill me-1"></i>Verified</span>
+                @else
+                    &nbsp;<span class="hero-badge unverified"><i class="bi bi-exclamation-circle me-1"></i>Unverified</span>
+                @endif
+            </div>
+            <div class="d-flex gap-2 mt-3">
+                <a href="{{ route('deposit') }}" class="btn btn-sm hero-action-btn"><i class="bi bi-plus-circle me-1"></i>Add Money</a>
+                <a href="{{ route('transactions') }}" class="btn btn-sm hero-action-btn-outline"><i class="bi bi-clock-history me-1"></i>History</a>
             </div>
         </div>
-        <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
-            <div class="d-flex flex-column align-items-lg-end gap-2">
-                @if(Auth::user()->kyc_status == '1')
-                    <span class="hero-badge verified"><i class="bi bi-patch-check-fill me-1"></i>Kyc Verified</span>
-                @else
-                    <span class="hero-badge unverified"><i class="bi bi-exclamation-circle me-1"></i>Kyc Unverified</span>
-                @endif
-                <span class="hero-balance-date"><i class="bi bi-clock me-1"></i>Last updated: {{ now()->format('h:i A') }}</span>
+        <div class="col-lg-5 text-lg-end mt-3 mt-lg-0 d-none d-lg-block">
+            <span><i class="bi bi-building me-1"></i>{{ Auth::user()->account_type }}</span>
+        </div>
+    </div>
+</div>
+
+{{-- Row 2 — Services Grid --}}
+<div class="db-card mb-4">
+    <div class="db-card-header d-flex justify-content-between align-items-center">
+        <span>Services</span>
+        <a href="#" class="text-accent fw-500 link-sm">Edit</a>
+    </div>
+    <div class="db-card-body">
+        <div class="row g-3 text-center">
+            <div class="col-3">
+                <a href="{{ route('bank') }}" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-send-fill"></i></div>
+                    <span>Transfer</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="{{ route('deposit') }}" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-plus-circle-fill"></i></div>
+                    <span>Deposit</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="{{ route('cfx') }}" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-currency-exchange"></i></div>
+                    <span>Forex</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="{{ route('cryptopage') }}" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-currency-bitcoin"></i></div>
+                    <span>Crypto</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="{{ route('card') }}" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-credit-card-2-front"></i></div>
+                    <span>Cards</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="{{ route('loan') }}" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-cash-stack"></i></div>
+                    <span>Loans</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="{{ route('transactions') }}" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-clock-history"></i></div>
+                    <span>History</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-phone-fill"></i></div>
+                    <span>Airtime</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-wifi"></i></div>
+                    <span>Data</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-trophy-fill"></i></div>
+                    <span>Betting</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-piggy-bank-fill"></i></div>
+                    <span>Savings</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-book-fill"></i></div>
+                    <span>Education</span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="service-grid-item">
+                    <div class="service-grid-icon"><i class="bi bi-grid-fill"></i></div>
+                    <span>More</span>
+                </a>
             </div>
         </div>
     </div>
 </div>
 
-{{-- Row 2 — Stat cards --}}
+{{-- Row 3 — Stat cards --}}
 <div class="row g-3 mb-4">
     <div class="col-6 col-lg-3">
         <div class="stat-card">
@@ -106,22 +200,38 @@
     </div>
 </div>
 
-{{-- Row 3 — Quick Actions --}}
-<div class="quick-actions mb-4">
-    <a href="{{ route('deposit') }}" class="qa-btn"><i class="bi bi-plus-circle"></i> Deposit</a>
-    <a href="{{ route('bank') }}" class="qa-btn"><i class="bi bi-send"></i> Transfer</a>
-    <a href="{{ route('cfx') }}" class="qa-btn"><i class="bi bi-currency-exchange"></i> Forex</a>
-    <a href="{{ route('cryptopage') }}" class="qa-btn"><i class="bi bi-currency-bitcoin"></i> Crypto</a>
-    {{-- <a href="{{ route('paybills') }}" class="qa-btn"><i class="bi bi-receipt"></i> Pay Bills</a> --}}
-    <a href="{{ route('card') }}" class="qa-btn"><i class="bi bi-credit-card-2-front"></i> Cards</a>
-    <a href="{{ route('loan') }}" class="qa-btn"><i class="bi bi-cash-stack"></i> Loans</a>
+{{-- Rewards --}}
+<div class="mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="fw-600">Rewards</span>
+    </div>
+    <div class="row g-3">
+        <div class="col-6">
+            <div class="reward-card">
+                <div class="reward-icon cashback-icon">&#127917;</div>
+                <div class="reward-stars">&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="reward-label">Cashback</div>
+                <div class="reward-value balance-sensitive">{{ Auth::user()->currency }}0.00</div>
+                <div class="reward-value balance-sensitive-hidden d-none">****</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="reward-card">
+                <div class="reward-icon referral-icon">&#128226;</div>
+                <div class="reward-stars text-muted small">&nbsp;</div>
+                <div class="reward-label">Referrals</div>
+                <div class="reward-value balance-sensitive">{{ Auth::user()->currency }}0.00</div>
+                <div class="reward-value balance-sensitive-hidden d-none">****</div>
+            </div>
+        </div>
+    </div>
 </div>
 
-{{-- Row 4 — Card + Transactions side by side --}}
+{{-- Row 4 — Transactions (full width) --}}
 <div class="row g-4 mb-4">
 
     {{-- My Card --}}
-    <div class="col-lg-5">
+    {{-- <div class="col-lg-5">
         <div class="db-card h-100">
             <div class="db-card-header d-flex justify-content-between align-items-center">
                 <span><i class="bi bi-credit-card-2-front me-2"></i>My Card</span>
@@ -130,7 +240,7 @@
             <div class="db-card-body">
                 @forelse($cards as $card)
                     @if($card->status == 0)
-                        {{-- Card under review --}}
+                        Card under review
                         <div class="text-center py-4">
                             <div class="mb-3 empty-icon-circle sm warning-bg">
                                 <i class="bi bi-hourglass-split circle-icon-sm"></i>
@@ -139,7 +249,7 @@
                             <p class="text-muted small mb-0">Your card application is being processed. We'll notify you when it's ready.</p>
                         </div>
                     @else
-                        {{-- Virtual card display --}}
+                        Virtual card display
                         <div class="home-virtual-card">
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <span class="badge bg-success bg-opacity-25 text-white label-xs">ACTIVE</span>
@@ -168,7 +278,7 @@
                         </div>
                     @endif
                 @empty
-                    {{-- No card - request one --}}
+                    No card - request one
                     <div class="text-center py-4">
                         <div class="mb-3 empty-icon-circle md accent-bg">
                             <i class="bi bi-credit-card circle-icon-md"></i>
@@ -182,10 +292,10 @@
                 @endforelse
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Recent Transactions --}}
-    <div class="col-lg-7">
+    <div class="col-12">
         <div class="db-card h-100">
             <div class="db-card-header d-flex justify-content-between align-items-center">
                 <span><i class="bi bi-clock-history me-2"></i>Recent Transactions</span>

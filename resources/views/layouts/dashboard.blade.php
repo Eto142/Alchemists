@@ -241,7 +241,7 @@
 </form>
 
 {{-- GTranslate --}}
-<div class="gtranslate_wrapper"></div>
+{{-- <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings={default_language:"en",detect_browser_language:true,wrapper_selector:".gtranslate_wrapper",alt_flags:{en:"usa",pt:"brazil",es:"colombia",fr:"quebec"}};</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <style>
@@ -263,7 +263,7 @@
 .gt_float_switcher *{background-color:transparent!important}
 .gt_float_switcher,.gt_float_switcher .gt_options{background:var(--primary,#0f2b46)!important}
 @media(max-width:991px){.gtranslate_wrapper{bottom:74px!important;right:14px!important}}
-</style>
+</style> --}}
 
 
 {{-- Bootstrap JS --}}
