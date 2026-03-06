@@ -138,8 +138,8 @@
 <script>window.gtranslateSettings={default_language:"en",detect_browser_language:true,wrapper_selector:".gtranslate_wrapper",alt_flags:{en:"usa",pt:"brazil",es:"colombia",fr:"quebec"}};</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <style>
-/* GTranslate — forest green globe button */
-.gtranslate_wrapper{position:fixed!important;bottom:22px!important;right:18px!important;top:auto!important;left:auto!important;z-index:9999!important}
+/* GTranslate — hidden (auto-translate only) */
+.gtranslate_wrapper{display:none!important}
 
 /* Pill: just the flag + code, ultra compact */
 .gtranslate_wrapper .gt_float_switcher{

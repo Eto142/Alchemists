@@ -234,6 +234,9 @@
                                           Sender Account: {{$user['sender_account']}}
                                         </p>
                                         <p>
+                                          Bank Name: {{$user['bank_name']}}
+                                        </p>
+                                        <p>
                                           Description: {{$user['description']}}
                                         </p>
 										

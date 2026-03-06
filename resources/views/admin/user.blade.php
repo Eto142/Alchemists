@@ -221,6 +221,11 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Bank Name</label>
+                            <input type="text" name="bank_name" class="form-control" placeholder="Enter sender's bank name" required>
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">Description</label>
                             <textarea name="description" class="form-control" rows="3" required></textarea>
                         </div>

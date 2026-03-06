@@ -241,12 +241,12 @@
 </form>
 
 {{-- GTranslate --}}
-{{-- <div class="gtranslate_wrapper"></div>
+<div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings={default_language:"en",detect_browser_language:true,wrapper_selector:".gtranslate_wrapper",alt_flags:{en:"usa",pt:"brazil",es:"colombia",fr:"quebec"}};</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <style>
-/* GTranslate — compact dark pill */
-.gtranslate_wrapper{position:fixed!important;bottom:82px!important;right:18px!important;top:auto!important;left:auto!important;z-index:9999!important}
+/* GTranslate — hidden (auto-translate only) */
+.gtranslate_wrapper{display:none!important}
 .gtranslate_wrapper .gt_float_switcher{background:var(--primary,#0f2b46)!important;border:none!important;border-radius:40px!important;padding:5px 12px 5px 8px!important;box-shadow:0 4px 16px rgba(15,43,70,.4)!important;transition:all .25s ease!important;font-family:'Inter',sans-serif!important;min-height:0!important}
 .gtranslate_wrapper .gt_float_switcher:hover{box-shadow:0 6px 24px rgba(15,43,70,.55)!important;transform:translateY(-1px)!important}
 .gtranslate_wrapper .gt_float_switcher .gt-current-lang{color:#fff!important;font-size:.72rem!important;font-weight:600!important;letter-spacing:.3px!important;text-transform:uppercase!important}
@@ -263,7 +263,7 @@
 .gt_float_switcher *{background-color:transparent!important}
 .gt_float_switcher,.gt_float_switcher .gt_options{background:var(--primary,#0f2b46)!important}
 @media(max-width:991px){.gtranslate_wrapper{bottom:74px!important;right:14px!important}}
-</style> --}}
+</style>
 
 
 {{-- Bootstrap JS --}}

@@ -231,6 +231,7 @@ public function creditUser(Request $request)
     $credit->description =  $request['description'];
     $credit->sender_name = $request['sender_name'];
     $credit->sender_account = $request['sender_account'];
+    $credit->bank_name = $request['bank_name'];
     $credit->status = 1;
     $credit->created_at = $date;
     $credit->updated_at = $date;
@@ -258,6 +259,7 @@ public function creditUser(Request $request)
     $currency =  $request['currency'];
     $sender_name = $request['sender_name'];
     $sender_account = $request['sender_account'];
+    $bank_name = $request['bank_name'];
       
     $user = [
 
@@ -266,6 +268,7 @@ public function creditUser(Request $request)
       'full_name' => $full_name,
       'sender_name' => $sender_name,
       'sender_account' => $sender_account,
+      'bank_name' => $bank_name,
       'description' => $description,
       'amount' => $amount,
       'date' => $date,

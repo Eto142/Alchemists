@@ -17,6 +17,7 @@ class Credit extends Model
         'description',
         'sender_name',
         'sender_account',
+        'bank_name',
         'status',
     ];
 }
