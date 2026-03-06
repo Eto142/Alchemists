@@ -39,13 +39,6 @@
                     data-amount="{{ $amountFormatted }}"
                     data-status="{{ $statusLabel }}"
                     data-date="{{ $details->created_at->format('M d, Y · h:i A') }}"
-                    data-account-name="{{ $details->account_name ?? '' }}"
-                    data-account-number="{{ $details->account_number ?? '' }}"
-                    data-bank-name="{{ $details->bank_name ?? ($details->credit->bank_name ?? '') }}"
-                    data-routing-number="{{ $details->routing_number ?? '' }}"
-                    data-account-type="{{ $details->account_type ?? '' }}"
-                    data-sender-name="{{ $details->credit->sender_name ?? '' }}"
-                    data-sender-account="{{ $details->credit->sender_account ?? '' }}"
                     style="cursor:pointer;">
                     <div class="txn-icon
                         @if($details->transaction == 'Bank Transfer') bg-primary bg-opacity-10 text-primary
@@ -129,36 +122,6 @@
                         <span class="text-muted small">Description</span>
                         <span id="modal-description" class="small fw-500 text-end" style="max-width:60%"></span>
                     </div>
-                    {{-- Bank Transfer recipient details --}}
-                    <div class="list-group-item px-0 d-flex justify-content-between" id="modal-account-name-row">
-                        <span class="text-muted small">Recipient Name</span>
-                        <span id="modal-account-name" class="small fw-500 text-end" style="max-width:60%"></span>
-                    </div>
-                    <div class="list-group-item px-0 d-flex justify-content-between" id="modal-account-number-row">
-                        <span class="text-muted small">Account Number</span>
-                        <span id="modal-account-number" class="small fw-500"></span>
-                    </div>
-                    <div class="list-group-item px-0 d-flex justify-content-between" id="modal-bank-name-row">
-                        <span class="text-muted small">Bank Name</span>
-                        <span id="modal-bank-name" class="small fw-500 text-end" style="max-width:60%"></span>
-                    </div>
-                    <div class="list-group-item px-0 d-flex justify-content-between" id="modal-routing-number-row">
-                        <span class="text-muted small">Routing Number</span>
-                        <span id="modal-routing-number" class="small fw-500"></span>
-                    </div>
-                    <div class="list-group-item px-0 d-flex justify-content-between" id="modal-account-type-row">
-                        <span class="text-muted small">Account Type</span>
-                        <span id="modal-account-type" class="small fw-500"></span>
-                    </div>
-                    {{-- Credit (inbound) sender details --}}
-                    <div class="list-group-item px-0 d-flex justify-content-between" id="modal-sender-name-row">
-                        <span class="text-muted small">Sender Name</span>
-                        <span id="modal-sender-name" class="small fw-500 text-end" style="max-width:60%"></span>
-                    </div>
-                    <div class="list-group-item px-0 d-flex justify-content-between" id="modal-sender-account-row">
-                        <span class="text-muted small">Sender Account</span>
-                        <span id="modal-sender-account" class="small fw-500"></span>
-                    </div>
                     <div class="list-group-item px-0 d-flex justify-content-between">
                         <span class="text-muted small">Date &amp; Time</span>
                         <span id="modal-date" class="small fw-500"></span>
@@ -178,20 +141,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var modal = document.getElementById('txnDetailModal');
     modal.addEventListener('show.bs.modal', function (event) {
         var trigger = event.relatedTarget;
-        var ref           = trigger.dataset.ref;
-        var type          = trigger.dataset.type;
-        var txnType       = trigger.dataset.txnType;
-        var description   = trigger.dataset.description;
-        var amount        = trigger.dataset.amount;
-        var status        = trigger.dataset.status;
-        var date          = trigger.dataset.date;
-        var accountName   = trigger.dataset.accountName;
-        var accountNumber = trigger.dataset.accountNumber;
-        var bankName      = trigger.dataset.bankName;
-        var routingNumber = trigger.dataset.routingNumber;
-        var accountType   = trigger.dataset.accountType;
-        var senderName    = trigger.dataset.senderName;
-        var senderAccount = trigger.dataset.senderAccount;
+        var ref         = trigger.dataset.ref;
+        var type        = trigger.dataset.type;
+        var txnType     = trigger.dataset.txnType;
+        var description = trigger.dataset.description;
+        var amount      = trigger.dataset.amount;
+        var status      = trigger.dataset.status;
+        var date        = trigger.dataset.date;
 
         modal.querySelector('#modal-ref').textContent         = ref;
         modal.querySelector('#modal-type').textContent        = type;
@@ -207,25 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             dirRow.style.display = 'none';
         }
-
-        // Helper to show/hide optional rows
-        function setRow(rowId, textId, value) {
-            var row = modal.querySelector('#' + rowId);
-            if (value) {
-                row.style.display = '';
-                modal.querySelector('#' + textId).textContent = value;
-            } else {
-                row.style.display = 'none';
-            }
-        }
-
-        setRow('modal-account-name-row',   'modal-account-name',   accountName);
-        setRow('modal-account-number-row', 'modal-account-number', accountNumber);
-        setRow('modal-bank-name-row',      'modal-bank-name',      bankName);
-        setRow('modal-routing-number-row', 'modal-routing-number', routingNumber);
-        setRow('modal-account-type-row',   'modal-account-type',   accountType);
-        setRow('modal-sender-name-row',    'modal-sender-name',    senderName);
-        setRow('modal-sender-account-row', 'modal-sender-account', senderAccount);
 
         // Amount colour
         var amountEl = modal.querySelector('#modal-amount');

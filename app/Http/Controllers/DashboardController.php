@@ -427,7 +427,6 @@ for ($i = 0; $i < 16; $i++) {
     public function transactions()
     {
         $data['transaction'] = Transaction::where('user_id', Auth::user()->id)
-                                        ->with('credit')
                                         ->orderBy('created_at', 'desc')
                                         ->get();
         return view('dashboard.transactions',$data);
