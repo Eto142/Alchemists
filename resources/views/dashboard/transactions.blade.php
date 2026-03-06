@@ -19,7 +19,27 @@
             </div>
         @else
             @foreach($transaction as $details)
-                <div class="txn-item">
+                @php
+                    $isDebit = in_array($details->transaction, ['Bank Transfer','Paypal Withdrawal','Skrill Withdrawal','Crypto Withdrawal']);
+                    $isCredit = $details->transaction == 'Loan';
+                    $amountFormatted = ($isDebit ? '-' : ($isCredit ? '+' : '')) . Auth::user()->currency . number_format($details->transaction_amount, 2);
+                    if ($details->transaction == 'Card') {
+                        $statusLabel = $details->transaction_status == '1' ? 'Approved' : ($details->transaction_status == '0' ? 'Pending' : 'Failed');
+                    } else {
+                        $statusLabel = $details->transaction_status == '1' ? 'Successful' : ($details->transaction_status == '0' ? 'Pending' : 'Failed');
+                    }
+                @endphp
+                <div class="txn-item txn-clickable"
+                    data-bs-toggle="modal"
+                    data-bs-target="#txnDetailModal"
+                    data-ref="{{ $details->transaction_ref ?? 'N/A' }}"
+                    data-type="{{ $details->transaction }}"
+                    data-txn-type="{{ $details->transaction_type ?? '' }}"
+                    data-description="{{ $details->transaction_description }}"
+                    data-amount="{{ $amountFormatted }}"
+                    data-status="{{ $statusLabel }}"
+                    data-date="{{ $details->created_at->format('M d, Y · h:i A') }}"
+                    style="cursor:pointer;">
                     <div class="txn-icon
                         @if($details->transaction == 'Bank Transfer') bg-primary bg-opacity-10 text-primary
                         @elseif($details->transaction == 'Loan') bg-success bg-opacity-10 text-success
@@ -50,21 +70,15 @@
                     </div>
                     <div class="txn-amount">
                         <div class="value
-                            @if(in_array($details->transaction, ['Bank Transfer','Paypal Withdrawal','Skrill Withdrawal','Crypto Withdrawal'])) text-danger
-                            @elseif($details->transaction == 'Loan') text-success
+                            @if($isDebit) text-danger
+                            @elseif($isCredit) text-success
                             @endif">
-                            @if(in_array($details->transaction, ['Bank Transfer','Paypal Withdrawal','Skrill Withdrawal','Crypto Withdrawal']))
-                                -{{ Auth::user()->currency }}{{ number_format($details->transaction_amount, 2) }}
-                            @elseif($details->transaction == 'Loan')
-                                +{{ Auth::user()->currency }}{{ number_format($details->transaction_amount, 2) }}
-                            @endif
+                            {{ $amountFormatted }}
                         </div>
                         <div>
-                            @if($details->transaction == 'Card' && $details->transaction_status == '1')
-                                <span class="badge badge-success">Approved</span>
-                            @elseif($details->transaction_status == '1')
-                                <span class="badge badge-success">Successful</span>
-                            @elseif($details->transaction_status == '0')
+                            @if($statusLabel == 'Approved' || $statusLabel == 'Successful')
+                                <span class="badge badge-success">{{ $statusLabel }}</span>
+                            @elseif($statusLabel == 'Pending')
                                 <span class="badge badge-pending">Pending</span>
                             @else
                                 <span class="badge badge-danger">Failed</span>
@@ -76,5 +90,111 @@
         @endif
     </div>
 </div>
+
+{{-- Transaction Detail Modal --}}
+<div class="modal fade" id="txnDetailModal" tabindex="-1" aria-labelledby="txnDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <h6 class="modal-title fw-bold" id="txnDetailModalLabel">Transaction Details</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-2">
+                <div class="text-center mb-4">
+                    <div id="modal-txn-icon" class="txn-icon mx-auto mb-2" style="width:56px;height:56px;font-size:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:50%;"></div>
+                    <div id="modal-amount" class="fs-4 fw-bold"></div>
+                    <div id="modal-status-badge" class="mt-1"></div>
+                </div>
+                <div class="list-group list-group-flush rounded">
+                    <div class="list-group-item px-0 d-flex justify-content-between">
+                        <span class="text-muted small">Reference</span>
+                        <span id="modal-ref" class="small fw-500 text-end" style="word-break:break-all;max-width:60%"></span>
+                    </div>
+                    <div class="list-group-item px-0 d-flex justify-content-between">
+                        <span class="text-muted small">Type</span>
+                        <span id="modal-type" class="small fw-500"></span>
+                    </div>
+                    <div class="list-group-item px-0 d-flex justify-content-between" id="modal-txn-type-row">
+                        <span class="text-muted small">Direction</span>
+                        <span id="modal-txn-type" class="small fw-500"></span>
+                    </div>
+                    <div class="list-group-item px-0 d-flex justify-content-between">
+                        <span class="text-muted small">Description</span>
+                        <span id="modal-description" class="small fw-500 text-end" style="max-width:60%"></span>
+                    </div>
+                    <div class="list-group-item px-0 d-flex justify-content-between">
+                        <span class="text-muted small">Date &amp; Time</span>
+                        <span id="modal-date" class="small fw-500"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var modal = document.getElementById('txnDetailModal');
+    modal.addEventListener('show.bs.modal', function (event) {
+        var trigger = event.relatedTarget;
+        var ref         = trigger.dataset.ref;
+        var type        = trigger.dataset.type;
+        var txnType     = trigger.dataset.txnType;
+        var description = trigger.dataset.description;
+        var amount      = trigger.dataset.amount;
+        var status      = trigger.dataset.status;
+        var date        = trigger.dataset.date;
+
+        modal.querySelector('#modal-ref').textContent         = ref;
+        modal.querySelector('#modal-type').textContent        = type;
+        modal.querySelector('#modal-description').textContent = description;
+        modal.querySelector('#modal-amount').textContent      = amount;
+        modal.querySelector('#modal-date').textContent        = date;
+
+        // Direction row
+        var dirRow = modal.querySelector('#modal-txn-type-row');
+        if (txnType) {
+            dirRow.style.display = '';
+            modal.querySelector('#modal-txn-type').textContent = txnType;
+        } else {
+            dirRow.style.display = 'none';
+        }
+
+        // Amount colour
+        var amountEl = modal.querySelector('#modal-amount');
+        amountEl.className = 'fs-4 fw-bold';
+        if (amount.startsWith('-')) amountEl.classList.add('text-danger');
+        else if (amount.startsWith('+')) amountEl.classList.add('text-success');
+
+        // Status badge
+        var badgeEl = modal.querySelector('#modal-status-badge');
+        var badgeClass = 'badge ';
+        if (status === 'Successful' || status === 'Approved') badgeClass += 'badge-success';
+        else if (status === 'Pending') badgeClass += 'badge-pending';
+        else badgeClass += 'badge-danger';
+        badgeEl.innerHTML = '<span class="' + badgeClass + '">' + status + '</span>';
+
+        // Icon
+        var iconEl = modal.querySelector('#modal-txn-icon');
+        var icons = {
+            'Bank Transfer':       ['bi-arrow-up-right',    'bg-primary bg-opacity-10 text-primary'],
+            'Loan':                ['bi-arrow-down-left',   'bg-success bg-opacity-10 text-success'],
+            'Card':                ['bi-credit-card',       'bg-dark bg-opacity-10 text-dark'],
+            'Crypto Withdrawal':   ['bi-currency-bitcoin',  'bg-warning bg-opacity-10 text-warning'],
+            'Paypal Withdrawal':   ['bi-paypal',            'bg-info bg-opacity-10 text-info'],
+            'Skrill Withdrawal':   ['bi-wallet2',           'bg-secondary bg-opacity-10 text-secondary'],
+        };
+        var iconData = icons[type] || ['bi-arrow-left-right', 'bg-secondary bg-opacity-10 text-secondary'];
+        iconEl.className = 'txn-icon mx-auto mb-2 ' + iconData[1];
+        iconEl.style.cssText = 'width:56px;height:56px;font-size:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:50%;';
+        iconEl.innerHTML = '<i class="bi ' + iconData[0] + '"></i>';
+    });
+});
+</script>
+@endpush
 
 @endsection
