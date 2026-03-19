@@ -121,6 +121,7 @@ Route::middleware('auth')->group(function () {
     // Bank Transfer
     Route::get('bank', [DashboardController::class, 'bank'])->name('bank');
     Route::get('bank-transfer-step1', [DashboardController::class, 'showStep1'])->name('bank.transfer.step1');
+    Route::get('bank-transfer-step2', fn() => redirect()->route('bank'))->name('bank.transfer.step2.get');
     Route::post('bank-transfer-step2', [DashboardController::class, 'showStep2'])->name('bank.transfer.step2');
     Route::post('bank-transfer', [DashboardController::class, 'bankTransfer'])->name('bank.transfer');
 
